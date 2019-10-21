@@ -175,12 +175,12 @@ $college += ['Troisième' => array(
 ];
 //print_r($college);
 
-foreach($college as $classes => $listofeleves){
-  echo "<br><br>" . $classes . "<br>";
-  foreach($listofeleves as $students => $infos){
+foreach($college as $nameofclasses => $classes){
+  echo "<br><br>" . $nameofclasses . "<br>";
+  foreach($classes as $students => $studentsinfos){
     echo '<br>';
-    foreach($infos as $tags => $answers){
-      echo $tags . ": " . $answers. ", ";
+    foreach($studentsinfos as $keys => $values){
+      echo $keys . ": " . $values. ", ";
     }
   }
 
@@ -249,7 +249,7 @@ echo '<br><br>';
 
 echo '13.Mes films : <br>';
 //ajoutez votre code ici
-$videotheque += array(
+$videotheque[]= array(
   
   ["nom" => "The Lord of the Rings",
   "date" => 2003,
@@ -273,7 +273,7 @@ $videotheque += array(
   
 );
 
-//var_dump($videotheque);
+print_r($videotheque);
 
 foreach($videotheque as $films => $filmsinfo){
   echo '<br><br>';
