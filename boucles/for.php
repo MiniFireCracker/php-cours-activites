@@ -111,17 +111,17 @@ echo '<br><br>';
 //Créer un tableau pour les mois de l'année et affiché tous les mois de Janvier à Décembre
 //modifier et/ou remplacer les éléments ci-dessous
 echo "8.Les mois depuis le debut de l'annee : <br>";
-$mois = [];
-for ($i = 0; $i < 0; $i) {
-    echo '';
+$mois = ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"];
+for ($i = 0; $i < count($mois) ; ++$i) {
+    echo $mois[$i].'<br>';
 }
 echo '<br><br>';
 
 //Afficher les mois de la fin de l'année jusqu'au début de l'année
 //modifier et/ou remplacer les éléments ci-dessous
 echo "9.Les mois depuis la fin de l'annee : <br>";
-for ($i = 0; $i < 0; $i) {
-    echo '';
+for ($i = count($mois)-1; $i>=0; --$i) { 
+    echo $mois[$i].'<br>';
 }
 echo '<br><br>';
 //----------------------------------------
@@ -149,6 +149,16 @@ $college = array(
 
 echo '10.Les eleves du college : <br>';
 //ajoutez votre code ici
+foreach($college as $classes => $eleves){
+  echo $classes ."<br>";
+  foreach($eleves as $collectionstudentinfo => $infoeleve){
+    echo  "Student id: " . $collectionstudentinfo."<br>";
+   foreach($infoeleve as $key => $value){
+    echo $key ." " . $value . "<br>";
+   }
+ } 
+}
+
 echo '<br><br>';
 
 //----------------------------------------
@@ -156,6 +166,27 @@ echo '<br><br>';
 //reprenez le tableau ci-dessus, ajoutez des éléves pour la classe de troisième et réaffichez tout
 echo '11.Les eleves du college (avec les nouveaux arrivants): <br>';
 //ajoutez votre code ici
+
+$college += ['Troisième' => array(
+  array('Nom' => 'Magnes', 'Prenom' => 'Charles'),
+  array('Nom' => 'DuVauxDeLusse', 'Prenom' => 'Etienne'),
+  array('Nom' => 'Moulin', 'Prenom' => 'Martin')
+)
+];
+//print_r($college);
+
+foreach($college as $classes => $listofeleves){
+  echo "<br><br>" . $classes . "<br>";
+  foreach($listofeleves as $students => $infos){
+    echo '<br>';
+    foreach($infos as $tags => $answers){
+      echo $tags . ": " . $answers. ", ";
+    }
+  }
+
+}
+
+
 echo '<br><br>';
 
 //----------------------------------------
@@ -197,6 +228,17 @@ $videotheque = array(
 
 echo '12.Mes films : <br>';
 //ajoutez votre code ici
+foreach($videotheque as $films => $filmsinfo){
+  echo $filmsinfo . '<br><br>';
+  foreach($filmsinfo as $infos => $details){
+    echo $infos . ": " . $details .", <br>";
+  }
+  foreach($details as $actors){
+    echo $actors . ", ";
+  }
+}
+
+
 echo '<br><br>';
 
 //----------------------------------------
@@ -207,4 +249,41 @@ echo '<br><br>';
 
 echo '13.Mes films : <br>';
 //ajoutez votre code ici
+$videotheque += array(
+  
+  ["nom" => "The Lord of the Rings",
+  "date" => 2003,
+  "realisateur" => "Peter Jackson",
+  "acteurs" => array(
+    'Elijah Wood', 'Viggo Mortensen', 'Orlando Bloom', 'Ian McKellen')]
+ ,
+
+    ["nom" => "Mafia Blues 2",
+    "date" => 2002,
+    "realisateur" => "Harold Ramis",
+    "acteurs" => array(
+    'Robert De Niro', 'Billy Crystal', 'Lisa Kudrow')]
+  ,
+  
+    ["nom" => "Le boss",
+    "date" => 2005,
+    "realisateur" => "Less Mayfield",
+    "acteurs" => array(
+    'Samuel L. Jackson', 'Eugene Levy', 'Miguel Ferrer')]
+  
+);
+
+//var_dump($videotheque);
+
+foreach($videotheque as $films => $filmsinfo){
+  echo '<br><br>';
+  foreach($filmsinfo as $infos => $details){
+    echo $infos . ": " . $details .", <br>";
+  }
+  foreach($details as $actors){
+    echo $actors . ", ";
+  }
+}
+
+
 echo '<br><br>';
