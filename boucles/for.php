@@ -249,28 +249,28 @@ echo '<br><br>';
 
 echo '13.Mes films : <br>';
 //ajoutez votre code ici
-$videotheque[]= array(
-  
-  ["nom" => "The Lord of the Rings",
+$videotheque[] = array(
+  "nom" => "The Lord of the Rings",
   "date" => 2003,
   "realisateur" => "Peter Jackson",
   "acteurs" => array(
-    'Elijah Wood', 'Viggo Mortensen', 'Orlando Bloom', 'Ian McKellen')]
- ,
+    'Elijah Wood', 'Viggo Mortensen', 'Orlando Bloom', 'Ian McKellen')
+);
 
-    ["nom" => "Mafia Blues 2",
-    "date" => 2002,
-    "realisateur" => "Harold Ramis",
-    "acteurs" => array(
-    'Robert De Niro', 'Billy Crystal', 'Lisa Kudrow')]
-  ,
-  
-    ["nom" => "Le boss",
-    "date" => 2005,
-    "realisateur" => "Less Mayfield",
-    "acteurs" => array(
-    'Samuel L. Jackson', 'Eugene Levy', 'Miguel Ferrer')]
-  
+$videotheque[] = array(
+  "nom" => "Mafia Blues 2",
+  "date" => 2002,
+  "realisateur" => "Harold Ramis",
+  "acteurs" => array(
+  'Robert De Niro', 'Billy Crystal', 'Lisa Kudrow')
+);
+
+$videotheque[] = array(
+  "nom" => "Le boss",
+  "date" => 2005,
+  "realisateur" => "Less Mayfield",
+  "acteurs" => array(
+  'Samuel L. Jackson', 'Eugene Levy', 'Miguel Ferrer')
 );
 
 print_r($videotheque);
@@ -278,12 +278,27 @@ print_r($videotheque);
 foreach($videotheque as $films => $filmsinfo){
   echo '<br><br>';
   foreach($filmsinfo as $infos => $details){
-    echo $infos . ": " . $details .", <br>";
-  }
-  foreach($details as $actors){
-    echo $actors . ", ";
+    if(!is_array($details)){
+      echo $infos . ": " . $details .", <br>";
+    }else{
+      echo "$infos :";
+      foreach($details as $actors){
+        echo $actors . ", ";
+      }
+    }
   }
 }
 
+/*
+for($i=0; $i< count($videotheque); ++$i){
+  echo '<br>';
+  foreach( $videotheque as $films => $infos){
+    echo $films . ": " . $infos ;
+    foreach( $infos as $keys => $values){
+      echo $keys . ": " . $values ;
+    }
+  }
+}
+*/
 
 echo '<br><br>';
